@@ -1,5 +1,6 @@
 import string
 import contractions
+import nltk
 from nltk.tokenize import word_tokenize
 
 text_abbreviations = {
@@ -237,30 +238,41 @@ text_abbreviations = {
 class TextManipulation:
 
     def __init__(self):
+        nltk.download("stopwords")
+
+        self.stop_words = nltk.corpus.stopwords.words("english")
         self.text_abbreviations = text_abbreviations
         return
 
-    def remove_contractions(self, text: str):
+    def remove_contractions(self, text: str) -> str:
         """
         Remove contractions from the text.
         """
         return contractions.fix(text)
 
-    def remove_punctuation(self, text: str):
+    def remove_punctuation(self, text: str) -> str:
         """Supprime la ponctuation d'une chaîne de caractères."""
         return "".join(c for c in text if c not in string.punctuation)
 
-    def remove_abbreviations(self, text):
+    def remove_abbreviations(self, text: str) -> str:
+        # Split the text into words
         words = text.split()
-        t = [
-            (
-                self.text_abbreviations[w.lower()]
-                if w.lower() in self.text_abbreviations.keys()
-                else w
-            )
-            for w in words
-        ]
-        return " ".join(t)
+
+        # Iterate through each word
+        cleaned_words = []
+        for word in words:
+            # Check if the word is an abbreviation
+            if word.lower() in self.text_abbreviations:
+                # If it is, replace it with its expanded form
+                cleaned_words.append(self.text_abbreviations[word.lower()])
+            else:
+                # If it's not an abbreviation, keep the word as it is
+                cleaned_words.append(word)
+
+        # Join the cleaned words back into a single string
+        cleaned_text = ' '.join(cleaned_words)
+        return cleaned_text
+
 
     def tokenize(self, texts: list[str]):
         tokenized_texts = []
@@ -272,5 +284,5 @@ class TextManipulation:
 
         return tokenized_texts
 
-    def remove_stopwords(self, tokens, stopwords):
-        return [token for token in tokens if token not in stopwords]
+    def remove_stopwords(self, tokens):
+        return [token for token in tokens if token not in self.stop_words]
