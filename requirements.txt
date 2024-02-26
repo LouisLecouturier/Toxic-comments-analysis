@@ -1,0 +1,6 @@
+numpy
+tensorflow
+pandas
+contractions~=0.1.73
+nltk~=3.8.1
+scikit-learn
