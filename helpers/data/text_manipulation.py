@@ -1,6 +1,7 @@
 import string
 import contractions
 import nltk
+from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 text_abbreviations = {
@@ -238,7 +239,10 @@ text_abbreviations = {
 class TextManipulation:
 
     def __init__(self):
-        nltk.download("stopwords")
+
+        if not nltk.corpus.stopwords:
+            print("NLTK stop words not installed...\nInstalling stop words")
+            nltk.download("stopwords")
 
         self.stop_words = nltk.corpus.stopwords.words("english")
         self.text_abbreviations = text_abbreviations
@@ -253,6 +257,9 @@ class TextManipulation:
     def remove_punctuation(self, text: str) -> str:
         """Supprime la ponctuation d'une chaîne de caractères."""
         return "".join(c for c in text if c not in string.punctuation)
+
+    def lower(self, text: str) -> str:
+        return text.lower()
 
     def remove_abbreviations(self, text: str) -> str:
         # Split the text into words
@@ -273,16 +280,7 @@ class TextManipulation:
         cleaned_text = ' '.join(cleaned_words)
         return cleaned_text
 
+    def remove_stopwords(self, text: str):
+        STOPWORDS = set(stopwords.words('english'))
 
-    def tokenize(self, texts: list[str]):
-        tokenized_texts = []
-
-        for text in texts:
-            tokenized_texts.append(
-                word_tokenize(text)
-            )
-
-        return tokenized_texts
-
-    def remove_stopwords(self, tokens):
-        return [token for token in tokens if token not in self.stop_words]
+        return ' '.join([word for word in text.split() if word not in STOPWORDS])

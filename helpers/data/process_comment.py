@@ -1,7 +1,7 @@
 from helpers.data import text_manipulation
 
 
-def process_comment(text: str) -> str:
+def process_comment(text: str) -> list[str]:
     """
     Preprocess a comment.
 
@@ -11,13 +11,9 @@ def process_comment(text: str) -> str:
 
     text_manipulator = text_manipulation.TextManipulation()
 
-    text = text.lower()
-
-    text = text_manipulator.remove_abbreviations(text)
+    text = text_manipulator.lower(text)
     text = text_manipulator.remove_contractions(text)
+    text = text_manipulator.remove_abbreviations(text)
     text = text_manipulator.remove_punctuation(text)
 
-    text = text_manipulator.tokenize([text])
-    text = text_manipulator.remove_stopwords(text)
-
-    return " ".join(text[0])
+    return text
