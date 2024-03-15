@@ -4,6 +4,8 @@
 
 This repository contains multiple ways of analyzing toxic comments. The goal is to compare different methods and see which one is the most efficient.
 
+A quick report written in French can be found in the `main` branch.
+
 
 ## Repository organization
 All the toxic comments models are available on different branches of the repository.
