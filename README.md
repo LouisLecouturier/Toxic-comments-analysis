@@ -13,6 +13,7 @@ You can find the following branches:
 - `RNN`: contains the code for the basic RNN model
 - `GRU`: contains the code for the GRU model
 - `LSTM`: contains the code for the LSTM model
+/!\ There is 2 LSTM branches : LSTMathis is the one that can be found in the report while LouiSTM is a notebook where we tried to go further in the implementation.
 
 ## Prerequisites
 - Python 3.11.5
@@ -21,7 +22,7 @@ You can find the following branches:
 ## Installation
 
 We are using glove embeddings, you can download them from the following link: https://nlp.stanford.edu/projects/glove/
-put the file glove.6B.100d.txt and others in a `GloVe` folder.
+put the file glove.6B.100d.txt and others in the `datasets` folder.
 
 ## Data
 We are using the Jigsaw dataset, you can download it from the following link:
