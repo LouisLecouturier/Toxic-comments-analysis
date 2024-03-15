@@ -1,5 +1,5 @@
 from keras.models import load_model
-from keras.src.utils import pad_sequences
+from keras.utils import pad_sequences
 
 from helpers.data.process_comment import process_comment
 
