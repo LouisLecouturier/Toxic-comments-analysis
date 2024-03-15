@@ -3,5 +3,6 @@ pandas
 nltk~=3.8.1
 scikit-learn
 contractions
+matplotlib
 tensorflow
 joblib~=1.2.0
