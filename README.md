@@ -13,6 +13,7 @@ You can find the following branches:
 - `RNN`: contains the code for the basic RNN model
 - `GRU`: contains the code for the GRU model
 - `LSTM`: contains the code for the LSTM model
+
 /!\ There is 2 LSTM branches : LSTMathis is the one that can be found in the report while LouiSTM is a notebook where we tried to go further in the implementation.
 
 ## Prerequisites
