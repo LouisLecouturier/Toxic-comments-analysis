@@ -5,8 +5,8 @@ from helpers.data.process_comment import process_comment
 
 import joblib
 
-MODEL_PATH = "models/GRU/model.keras"
-VECTORIZER_PATH = "models/GRU/vectorizer.pkl"
+MODEL_PATH = "models/LSTM/model.keras"
+VECTORIZER_PATH = "models/LSTM/vectorizer.pkl"
 
 MAX_TOKENS = 1500
 
