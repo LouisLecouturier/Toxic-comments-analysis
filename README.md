@@ -12,7 +12,7 @@ You can find the following branches:
 - `tf-idf`: contains the code for the tf-idf model
 - `RNN`: contains the code for the basic RNN model
 - `GRU`: contains the code for the GRU model
-- `lstm`: contains the code for the LSTM model
+- `LSTM`: contains the code for the LSTM model
 
 ## Prerequisites
 - Python 3.11.5
