@@ -18,6 +18,8 @@ You can find the following branches:
 
 /!\ There is 2 LSTM branches : LSTMathis is the one that can be found in the report while LouiSTM is a notebook where we tried to go further in the implementation.
 
+Each model has its metrics displayed on the code.
+
 ## Prerequisites
 - Python 3.11.5
 - Tensorflow 2.16.0
