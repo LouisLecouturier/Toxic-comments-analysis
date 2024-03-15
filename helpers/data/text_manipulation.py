@@ -242,7 +242,7 @@ class TextManipulation:
 
         if not nltk.corpus.stopwords:
             print("NLTK stop words not installed...\nInstalling stop words")
-            nltk.download("stopwords")
+        nltk.download("stopwords")
 
         self.stop_words = nltk.corpus.stopwords.words("english")
         self.text_abbreviations = text_abbreviations
